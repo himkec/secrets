@@ -6,4 +6,4 @@ jobs:
       - name: create env file
         run: |
          touch .env.qe
-         echo BASE_URL=${{ secrets.QE_BASE_URL }} >> .env
+         echo BASE_URL=${{ secrets.QE_BASE_URL }} >> .env.qe
