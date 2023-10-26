@@ -3,7 +3,17 @@ jobs:
   create_env_file_job:
     runs-on: ubuntu-latest
     steps:
-      - name: create env file
+      - name: Create and populate .env.qe file
+        env:
+          BASE_URL: ${{ secrets.QE_BASE_URL }}
+          API_SUFFIX: ${{ secrets.QE_API_SUFFIX }}
         run: |
-         touch .env.qe
-         echo BASE_URL=${{ secrets.QE_BASE_URL }} >> .env.qe
+          touch .env.qe
+          echo BASE_URL="$BASE_URL" >> .env.qe
+          echo API_SUFFIX="$API_SUFFIX" >> .env.qe
+          echo "cat .env.qe"
+          cat .env.qe
+
+          echo "ls -a ."
+          ls -a .
+        shell: bash
