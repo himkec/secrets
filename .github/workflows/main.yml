@@ -1,23 +1,13 @@
-name: Create envfile
-
-on: [push]
-
-jobs:
-  my_job:
+on:
+  push:
+    branches:
+      - master
+jobs: 
+  create_env_file_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Load environment variables
-        uses: actions/setup-node@v2
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
         with:
-          node-version: '14.x'
-      - run: npm install dotenv
-
-      - name: Print environment variables
-        env:
-          BASE_URL: ${{ secrets.QE_BASE_URL }}
-          API_SUFFIX: ${{ secrets.QE_API_SUFFIX }}
-        run: |
-          npx dotenv -e .env echo $BASE_URL
+          QE_BASE_URL: ${{ secrets.BASE_URL }}
+         
