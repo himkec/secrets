@@ -3,8 +3,7 @@ jobs:
   create_env_file_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          QE_BASE_URL: ${{ secrets.BASE_URL }}
-         
+      - name: create env file
+        run: |
+         touch .env.qe
+         echo BASE_URL=${{ secrets.QE_BASE_URL }} >> .env
