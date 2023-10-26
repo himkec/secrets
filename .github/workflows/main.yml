@@ -12,7 +12,7 @@ jobs:
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v2.0
       with:
-        envkey_BASE_URL: ${{ secrets.BASE_URL }}
-        envkey_BROWSER: ${{ secrets.BROWSER }}
-        envkey_API_SUFFIX: ${{ BROWSER.API_SUFFIX }}
+        QE_BASE_URL: ${{ secrets.BASE_URL }}
+        QE_BROWSER: ${{ secrets.BROWSER }}
+        QE_API_SUFFIX: ${{ BROWSER.API_SUFFIX }}
         
